@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Link } from "react-router-dom";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
-export default function Sessions ({ filmes }) {
-    
+export default function Sessions () {
+
     const {idFilme} = useParams();
     const [data, setData] = useState([]);
 
@@ -12,18 +12,17 @@ export default function Sessions ({ filmes }) {
         const request = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${idFilme}/showtimes`)
 
         request.then(resposta => {
-           setData(resposta.data)
+           setData(resposta.data);
           
         })
 
     },[])
 
-      
 
+   
     console.log(data)
-
-
-    //console.log(id)
+    
+    
 
     return (
 
@@ -38,8 +37,8 @@ export default function Sessions ({ filmes }) {
             <h2>{`${session.weekday} - ${session.date}`}</h2>
 
             <div >
-            {session.showtimes.map( (time) => <Link to={`${session.id}/seats`}>
-                <button className='time-button'>{time.name}</button>
+            {session.showtimes.map( (time, index) => <Link to={`/lugares/${time.id}`}>
+                <button key={index} className='time-button'>{time.name}</button>
             </Link>)}
             </div>
         </div>): ""} 

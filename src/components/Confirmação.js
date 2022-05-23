@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Confirm () {
     return (
        <>
@@ -24,7 +26,7 @@ export default function Confirm () {
             <h2></h2>
         </div>
        
-        <button>Voltar pra Home</button>
+       <Link to="/"><button>Voltar pra Home</button></Link>
 
        </>
     )

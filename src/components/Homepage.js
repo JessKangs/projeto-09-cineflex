@@ -5,10 +5,16 @@ export default function Homepage ({filmes}) {
     return (
         <>
 
-            {filmes.map(poster => <Link to={`/api/v5/cineflex/movies/${poster.id}/showtimes`}><div className="movie-card">
-                <img src={poster.posterURL} alt="poster"/>
-                </div></Link> )}
+            <div className="instrucoes">
+                <h1>Selecione o filme</h1>
+            </div>
+
+            <div className="render-filmes">
+                {filmes.map((poster,index) => <Link to={`/sessoes/${poster.id}`}><div key={index} className="movie-card">
+                    <img key={index} src={poster.posterURL} alt="poster"/>
+                    </div></Link> )}
             
+            </div>
 
         </>
     )

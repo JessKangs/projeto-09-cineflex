@@ -4,6 +4,7 @@ import axios from 'axios';
 import Homepage from "./Homepage"
 import Sessions from "./Sessões"
 import Lugares from "./Lugares";
+import Confirmação from "./Confirmação"
 
 export default function App () {
 
@@ -23,7 +24,7 @@ export default function App () {
         });
     }, []);
     
-    //Importar informações da lista de sessões
+    
 
 
 return (
@@ -36,10 +37,11 @@ return (
 
         <Route path="/" element={<Homepage filmes={filmes}/>} />
 
-        <Route path="/api/v5/cineflex/movies/:idFilme/showtimes" element={<Sessions filmes={filmes}/>}/>
+        <Route path="sessoes/:idFilme" element={<Sessions filmes={filmes}/>}/>
 
-        <Route path="/api/v5/cineflex/movies/:idFilme/showtimes/:idSessao/seats" element={<Lugares filmes={filmes} />}/>
+        <Route path="lugares/:idSessao" element={<Lugares filmes={filmes}/>}/>
 
+        <Route path="/sucesso" element={<Confirmação />} /> 
         </Routes>
 
 
