@@ -39,7 +39,7 @@ export default function Lugares ({ filmes, data }) {
     const [dcpf, setDcpf] = useState("");
     // let select = 'selected';
 
-    function enviar () { console.log("AH") }
+    function enviar () { 
         let dados = {
             ids: [],
             name: {dnome},
@@ -47,9 +47,9 @@ export default function Lugares ({ filmes, data }) {
         }
         console.log(dados)
         console.log(dados.ids)
-        //axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", dados)
+        axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", dados)
 
-    //}
+    }
 
    
 
